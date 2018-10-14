@@ -18,6 +18,7 @@ def help
 - exit : exits this program"
 end
 
+<<<<<<< HEAD
 def list(songs)
   songs.each_with_index {|song, index| puts "#{index}. #{song}"}
 end
@@ -29,11 +30,29 @@ def play(songs)
   if songs.include?(user_input) || (1..songs.size).to_a.include?(user_input.to_i)
     if user_input.numeric?
       puts "Playing #{songs[user_input.to_i-1]}"
+=======
+def list
+  songs.each_with_index {|song, index| puts "#{index}. #{song}"}
+end
+
+def play
+  puts "Please enter a song name or number:"
+  user_input = gets.chomp
+  
+  if songs.include?(user_input) || [1..songs.size].include?(user_input.to_i)
+    if user_input.is_an_integer?
+      puts "Playing #{songs[user_input.to_i]}"
+>>>>>>> ce1d95bcb9c3e5334027b45ac2728cdbe3d152eb
     else
       puts "Playing #{user_input}"
     end
   else
+<<<<<<< HEAD
     puts "Invalid input, please try again."
+=======
+    puts "Invalid input please try again."
+    play
+>>>>>>> ce1d95bcb9c3e5334027b45ac2728cdbe3d152eb
   end
 end
 
@@ -52,17 +71,27 @@ def run(songs)
         exit_jukebox
         break
       when "list"
+<<<<<<< HEAD
         list(songs)
       when "play"
         play(songs)
+=======
+        list
+      when "play"
+        play
+>>>>>>> ce1d95bcb9c3e5334027b45ac2728cdbe3d152eb
       when "help"
         help
     end
   end
+<<<<<<< HEAD
 end
 
 class String
   def numeric?
     Float(self) rescue false
   end
+=======
+  
+>>>>>>> ce1d95bcb9c3e5334027b45ac2728cdbe3d152eb
 end
